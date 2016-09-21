@@ -15,15 +15,15 @@
 * superagent
 
 ##Next Steps
-Research documentation for onConnect
-map out all routes needed for project
-create building environment
+* Research documentation for onConnect
+* map out all routes/views needed for project
+* create building environment
 
 
 
 ##Bonuses
-import movie reviews for each movie
-imbed video trailers for each movie
-allow users to write personal reviews for each movie and rate (upvote/downvote)
-allow users to view reviews they have made, edit, and delete reviews.
+* import movie reviews for each movie
+* imbed video trailers for each movie
+* allow users to write personal reviews for each movie and rate (upvote/downvote)
+* allow users to view reviews they have made, edit, and delete reviews.
 
