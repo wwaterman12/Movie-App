@@ -12,6 +12,7 @@
 * React JS
 * Firebase
 * OnConnect API
+* superagent
 
 ##Next Steps
 Research documentation for onConnect
