@@ -1,4 +1,4 @@
-# Movie-App
+# Geo-Location-App
 
 
 ##MVP:
