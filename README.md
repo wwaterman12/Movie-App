@@ -1,29 +1,25 @@
 # Movie-App
 
-##Project MVP
-* user authentication
-* return movie listings based on zipcode
-* allow users to rate movies (like/dislike)
 
-##Technologies
-* html
-* css
-* Javascript
+##MVP:
+* HTML5 Geolocation Determine current user location.
+* On a save, the location AND a comment about the location is stored in a database.
+* Login: This location is associated with the user.
+
+##technology
+* html5
+* CSS
+* firebase
 * React JS
-* Firebase
-* OnConnect API
-* superagent
-
-##Next Steps
-* Research documentation for onConnect
-* map out all routes/views needed for project
-* create building environment
 
 
+##Next step
+* get Geolocation working
+* map out all routes/views/components
+* create build environment
 
-##Bonuses
-* import movie reviews for each movie
-* imbed video trailers for each movie
-* allow users to write personal reviews for each movie and rate (upvote/downvote)
-* allow users to view reviews they have made, edit, and delete reviews.
 
+##Bonus:
+
+* When two users have been at the same location... alert the user to find the other user IRL
+* MAYBE a map but... MAYBE
