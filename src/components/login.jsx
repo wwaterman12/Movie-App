@@ -2,15 +2,12 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import firebase from '../../firebase.config.js';
 
-class Register extends Component {
+class Login extends Component {
   constructor() {
     super();
     this.state = {
       username: '',
       password: '',
-      firstname: '',
-      lastname: '',
-      notes: {},
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,33 +20,25 @@ class Register extends Component {
     this.setState(stateObj);
   }
 
-  handleSubmit() {
-    const { username, password, firstname, lastname, notes } = this.state;
+  handleSubmit(e) {
+    const { username, password } = this.state;
     firebase.auth()
-      .createUserWithEmailAndPassword(username, password)
-      .catch( err => {
-        console.log(err);
-      })
-      .then( (user) => {
-        firebase.database().ref('users')
-          .child(user.uid)
-          .set({username: username, password: password, firstname: firstname, lastname: lastname})
+      .signInWithEmailAndPassword(username, password)
+      .catch( (err) => {
+        const errorCode = err.code;
+        const errorMessage = err.message;
+        console.log(err)
       })
       .then( () => {
         this.props.router.push('/note')
       })
   }
 
+
   render() {
     return (
       <div>
-        <div id="register-form">
-          <div>
-            <input name="firstname" onChange={this.handleChange} type="text" placeholder="first name" />
-          </div>
-          <div>
-            <input name="lastname" onChange={this.handleChange} type="text" placeholder="last name" />
-          </div>
+        <div id="login-form">
           <div>
             <input name="username" onChange={this.handleChange} type="text" placeholder="username" />
           </div>
@@ -60,9 +49,7 @@ class Register extends Component {
         </div>
       </div>
       )
-    }
+  }
 }
 
-export default withRouter(Register);
-
-
+export default withRouter(Login);
