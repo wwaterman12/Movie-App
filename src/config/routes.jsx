@@ -6,6 +6,7 @@ import Register from '../components/register.jsx';
 import Login from '../components/login.jsx';
 import Note from '../components/note.jsx';
 import NoteList from '../components/notelist.jsx';
+import EditNote from '../components/editnote.jsx';
 
 const Routes = () => {
   return (
@@ -16,6 +17,7 @@ const Routes = () => {
         <Route path="login" component={Login}/>
         <Route path="note" component={Note} />
         <Route path="notelist" component={NoteList} />
+        <Route path=":editnote" component={EditNote} />
       </Route>
     </Router>
 

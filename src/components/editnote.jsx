@@ -1,40 +1,18 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router';
-import request from 'superagent';
+import { withRouter, Link } from 'react-router';
 import firebase from '../../firebase.config.js';
 
 
-class Note extends Component {
+class EditNote extends Component{
   constructor() {
     super();
     this.state = {
-      localTitle: '',
       localContent: '',
-      localId: '',
-      localLatitude: '',
-      localLongitude: '',
+      localTitle: '',
     }
     this.submit = this.submit.bind(this);
     this.updateContent = this.updateContent.bind(this);
     this.updateTitle = this.updateTitle.bind(this);
-  }
-
-  submit(e) {
-    e.preventDefault();
-    let database = firebase.database().ref();
-    let notesRef = database.child("notes");
-    let newNoteRef = notesRef.push();
-    newNoteRef.set({
-      title: this.state.localTitle,
-      content: this.state.localContent,
-      latitude: this.state.localLatitude,
-      longitude: this.state.localLongitude,
-    })
-    this.props.router.push('/notelist')
-  }
-
-  componentDidMount() {
-    this.getCoords();
   }
 
   updateContent(e) {
@@ -51,27 +29,19 @@ class Note extends Component {
     });
   }
 
-  getCoords() {
-    const self = this;
-    let newLat = '';
-    let newLong = '';
-    function success(pos) {
-      let lat = pos.coords.latitude;
-      let long = pos.coords.longitude;
-      console.log('lat' + lat);
-      console.log('long' + long);
-      newLat = lat;
-      newLong = long;
-      self.setState({
-        localLatitude: newLat,
-        localLongitude: newLong,
-      })
-    }
-    navigator.geolocation.getCurrentPosition(success);
+  submit(e) {
+    e.preventDefault();
+    let database = firebase.database().ref();
+    let noteRef = database.child("notes").child(this.props.params.editnote);
+    noteRef.set({
+      title: this.state.localTitle,
+      content: this.state.localContent,
+    })
+    this.props.router.push('/notelist');
   }
 
-
   render() {
+    console.log(this.props.params.editnote);
     return (
       <div>
         <form id='new-note' onSubmit={this.submit}>
@@ -98,5 +68,4 @@ class Note extends Component {
   }
 }
 
-
-export default withRouter(Note);
+export default withRouter(EditNote);
