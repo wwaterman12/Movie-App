@@ -16,7 +16,10 @@ class Main extends Component {
     return (
       <div>
         <div id="main-nav">
-          <h1>Title Goes Here</h1>
+          <h1>Notes Map</h1>
+            <Link className="login" to="login">Login /</Link>
+
+            <Link className="register" to="register"> Register</Link>
         </div>
         <div id="main-content">
           {this.props.children}

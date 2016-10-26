@@ -20,7 +20,7 @@ class NoteList extends React.Component {
   }
 
   getNotes() {
-    let notesDatabase = firebase.database().ref().child("notes");
+    let notesDatabase = firebase.database().ref().child("users").child("notes").child(this.props.params.notelist);
     let updatedNotes = [];
     let noteIds = [];
     notesDatabase.on("value", (snapshot) => {
@@ -56,11 +56,6 @@ class NoteList extends React.Component {
     })
   }
 
-  delete(linkURL) {
-    let ref = firebase.database().ref().child('notes').child(linkURL);
-    ref.remove();
-  }
-
   render() {
     return (
       <div>
@@ -70,7 +65,6 @@ class NoteList extends React.Component {
             return (
               <div>
                 <Link key={idx} to={`/${linkURL}`}>{title}</Link>
-                <button onclick={this.delete(linkURL)}>delete</button>
               </div>
 
               )

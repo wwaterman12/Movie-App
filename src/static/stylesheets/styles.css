@@ -1,5 +1,5 @@
 #main-nav {
-  background-color: rgba(40, 184, 240, .3);
+  background-color: cornflowerblue;
   color: white;
   position: absolute;
   top: 0;
@@ -10,13 +10,12 @@
 }
 
 a {
-  color: black;
+  color: white;
   text-decoration: none;
 }
 
 #main-content {
   position: absolute;
-  padding-top: 6rem;
   text-align: center;
   top: 5rem;
   left: 0;
@@ -24,13 +23,13 @@ a {
   height: 100%;
 }
 
-#login {
+.login {
   position: absolute;
   top: 1rem;
   right: 5.7rem;
 }
 
-#register {
+.register {
   position: absolute;
   top: 1rem;
   right: 2rem;
